@@ -42,7 +42,6 @@ export class AppComponent {
       if (this.gameWon() === true) {
         this.filledBlocks = this.filledBlocks.map(f =>  f === this.symbol ? f += ' win' : f)
       }
-      console.log(this.filledBlocks)
     })
   }
 

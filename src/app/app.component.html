@@ -12,4 +12,7 @@
     *ngFor="let b of blocks;let i = index">
   </div>
 </div>
-<div class="reset" (click)="reset()"></div>
+<div class="reset"
+    [style.width]="maxWidth / 20 + 'px'"
+    [style.height]="maxHeight / 20 + 'px'"
+    (click)="reset()"></div>
