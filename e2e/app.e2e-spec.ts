@@ -1,6 +1,6 @@
 import { WebsitePage } from './app.po';
 
-describe('tictactwo App', function() {
+describe('edkotkas.github.io App', function() {
   let page: WebsitePage;
 
   beforeEach(() => {
