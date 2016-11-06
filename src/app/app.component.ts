@@ -64,28 +64,42 @@ export class AppComponent {
     let horiz: any = []
     let verti: any = []
     for(let i = 0; i < this.gridSize; i++) {
-      for (let j = 0; j < this.gridSize ; j++) {
+      for (let j = 0; j < this.gridSize; j++) {
         horiz.push(this.checkFilled(i * this.gridSize + j))
-        verti.push(this.checkFilled(j * this.gridSize + i))
       }
-      if (!horiz.includes(false) || !verti.includes(false)) {
+      if (!horiz.includes(false)) {
         return true
       }
+      horiz = []
+    }
+    for(let i = 0; i < this.gridSize; i++) {
+      for (let j = 0; j < this.gridSize ; j++) {
+        verti.push(this.checkFilled(j * this.gridSize + i))
+      }
+      if (!verti.includes(false)) {
+        return true
+      }
+      verti = []
     }
 
     let diagOne: any = []
     for(let i = 0; i < this.getBlocks(); i+=4) {
         diagOne.push(this.checkFilled(i))
     }
-
-    let diagTwo: any = []
-    for(let i = 2; i < this.getBlocks(); i+=2) {
-        diagTwo.push(this.checkFilled(i))
-    }
-
-    if (!diagOne.includes(false)|| !diagTwo.includes(false)) {
+    if(!diagOne.includes(false)){
       return true
     }
+    diagOne = []
+
+    let diagTwo: any = []
+    for(let i = 2; i < this.gridSize * 2; i+=2) {
+      console.log(i)
+      diagTwo.push(this.checkFilled(i))
+    }
+    if (!diagTwo.includes(false)) {
+      return true
+    }
+    diagTwo = []
 
     return false
   }
