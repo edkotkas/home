@@ -1,6 +1,6 @@
 import { WebsitePage } from './app.po';
 
-describe('edkotkas.github.io App', function() {
+describe('home App', function() {
   let page: WebsitePage;
 
   beforeEach(() => {
