@@ -22,6 +22,8 @@ export class TictactwoComponent implements OnInit {
   private maxHeight = window.innerHeight
   private maxWidth = window.innerWidth
 
+  private active: boolean = true
+
   constructor() {
     if (this.blocks.length != this.getBlocks()){
       this.blocks = Array(this.getBlocks()).fill("")
@@ -39,7 +41,8 @@ export class TictactwoComponent implements OnInit {
         this.filledBlocks[event.block] = this.symbol
       }
 
-      if (this.gameWon() === true) {
+      if (this.gameWon() === true && this.active === true) {
+        this.active = false
         this.filledBlocks = this.filledBlocks.map(f =>  f === this.symbol ? f += ' win' : f == "" ? f : f += " lose")
       }
     })
@@ -54,6 +57,7 @@ export class TictactwoComponent implements OnInit {
   reset() {
     this.blocks = Array(this.getBlocks()).fill("")
     this.filledBlocks = Array(this.getBlocks()).fill("")
+    this.active = true
   }
 
   getBlocks() {
@@ -68,6 +72,7 @@ export class TictactwoComponent implements OnInit {
         horiz.push(this.checkFilled(i * this.gridSize + j))
       }
       if (!horiz.includes(false)) {
+        console.log('horizontal')
         return true
       }
       horiz = []
@@ -77,6 +82,7 @@ export class TictactwoComponent implements OnInit {
         verti.push(this.checkFilled(j * this.gridSize + i))
       }
       if (!verti.includes(false)) {
+        console.log('vertical')
         return true
       }
       verti = []
@@ -87,6 +93,7 @@ export class TictactwoComponent implements OnInit {
         diagOne.push(this.checkFilled(i))
     }
     if(!diagOne.includes(false)){
+      console.log('diagone')
       return true
     }
     diagOne = []
@@ -96,6 +103,7 @@ export class TictactwoComponent implements OnInit {
       diagTwo.push(this.checkFilled(i))
     }
     if (!diagTwo.includes(false)) {
+      console.log('diagtwo')
       return true
     }
     diagTwo = []
