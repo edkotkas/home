@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { TictactwoComponent } from './tictactwo/tictactwo.component';
+import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TictactwoComponent
+    TictactwoComponent,
+    LoadingScreenComponent
   ],
   imports: [
     BrowserModule,

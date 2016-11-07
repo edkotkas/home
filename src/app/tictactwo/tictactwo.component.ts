@@ -92,7 +92,7 @@ export class TictactwoComponent implements OnInit {
     diagOne = []
 
     let diagTwo: any = []
-    for(let i = 2; i < this.gridSize * 2; i+=2) {
+    for(let i = 2; i <= this.gridSize * 2; i+=2) {
       diagTwo.push(this.checkFilled(i))
     }
     if (!diagTwo.includes(false)) {
