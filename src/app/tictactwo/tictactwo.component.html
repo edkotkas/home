@@ -8,8 +8,8 @@
     class="col-xs-4 block"
     [style.background-size]="getMaxSymbolSize() + 'px'"
     [ngClass]="filledBlocks[i]"
-    (click)="clickBlock({event: $event, block: i})"
-    *ngFor="let b of blocks;let i = index">
+    (click)="fillBlock({event: $event, block: i})"
+    *ngFor="let b of blocks;let i = index">{{i}}
   </div>
 </div>
 <div class="reset"

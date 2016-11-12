@@ -57,6 +57,10 @@
   background-color: rgb(241, 54, 81);
 }
 
+.clicked {
+  
+}
+
 .reset {
   position: absolute;
   top: 10px;
