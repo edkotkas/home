@@ -12,107 +12,127 @@ export class TictactwoComponent implements OnInit {
 
   private cross: string = ' cross'
   private oval: string = ' oval'
-  private symbol: string
+  private symbol: string = this.cross
 
   private gridSize: number = 3
 
-  private blocks = Array(9).fill("")
-  private filledBlocks = Array(9).fill("")
+  private blocks = Array(this.gridSize * this.gridSize).fill("")
+  private filledBlocks = this.blocks
 
   private maxHeight = window.innerHeight
   private maxWidth = window.innerWidth
 
-  private active: boolean = true
-
-  constructor() {
-    if (this.blocks.length != this.getBlocks()){
-      this.blocks = Array(this.getBlocks()).fill("")
-      this.filledBlocks = Array(this.getBlocks()).fill("")
-    }
-  }
+  private running: boolean = true
 
   ngOnInit() {
-    this.blockClicker.subscribe(event => {
-      if(this.gameWon() === false
-        && !this.filledBlocks[event.block].includes(this.cross)
-        && !this.filledBlocks[event.block].includes(this.oval)) {
-
-        this.swapSymbol()
-        this.filledBlocks[event.block] = this.symbol
-      }
-
-      if (this.gameWon() === true && this.active === true) {
-        this.active = false
-        this.filledBlocks = this.filledBlocks.map(f =>  f === this.symbol ? f += ' win' : f == "" ? f : f += " lose")
-      }
-    })
   }
 
-  keyUp(event) {
-    if(event.code === 'KeyR') {
-      this.reset()
-    }
+  tryFill(event) {
+    this.running
+      ? this.canFillBlock(event.block) && !this.isCombo()
+        ? this.fillBlock(event.block)
+        : this.isWinningMove(event.block)
+      : false
+  }
+
+  isWinningMove(block) {
+    return this.isCombo()
+      ? this.endGame(block)
+      : !this.canFillBlock(block)
+        ? this.allBlocksFilled()
+          ? this.fillAllBlocks()
+          : false
+        : this.fillAllBlocks()
+  }
+
+  canFillBlock(block) {
+    return !this.allBlocksFilled() && !this.isFilled(block)
+  }
+
+  fillBlock(block) {
+    this.swapSymbol()
+    this.setBlock(block, this.symbol)
+    this.isWinningMove(block)
+  }
+
+  setBlock(block, symbol) {
+    this.filledBlocks[block] = symbol
+  }
+
+
+  endGame(block) {
+    let winningBlock = this.getSymbol(block)
+    this.fillBlocksResult(winningBlock, ' win')
+    this.fillBlocksResult(this.getOpponent(winningBlock), ' lose')
+    this.running = false
+  }
+
+  getSymbol(block) {
+    return this.getBlock(block).includes(this.cross) ? this.cross : this.oval
+  }
+
+  getOpponent(symbol) {
+    return symbol.includes(this.cross) ? this.oval : this.cross
+  }
+
+  fillBlocksResult(block, result) {
+    this.filledBlocks = this.filledBlocks.map(f => f.includes(block) ? f += result : f)
+  }
+
+  fillAllBlocks() {
+    console.log('i got hit')
+    this.filledBlocks = this.filledBlocks.map(f => f += ' tie')
+    return true
+  }
+
+  isKeyR(event) {
+    return event.code === 'KeyR'
+      ? this.reset()
+      : false
   }
 
   reset() {
     this.blocks = Array(this.getBlocks()).fill("")
     this.filledBlocks = Array(this.getBlocks()).fill("")
-    this.active = true
+    this.running = true
   }
 
   getBlocks() {
     return this.gridSize * this.gridSize
   }
 
-  gameWon() {
-    let horiz: any = []
-    let verti: any = []
-    for(let i = 0; i < this.gridSize; i++) {
-      for (let j = 0; j < this.gridSize; j++) {
-        horiz.push(this.checkFilled(i * this.gridSize + j))
-      }
-      if (!horiz.includes(false)) {
-        console.log('horizontal')
-        return true
-      }
-      horiz = []
-    }
-    for(let i = 0; i < this.gridSize; i++) {
-      for (let j = 0; j < this.gridSize ; j++) {
-        verti.push(this.checkFilled(j * this.gridSize + i))
-      }
-      if (!verti.includes(false)) {
-        console.log('vertical')
-        return true
-      }
-      verti = []
-    }
-
-    let diagOne: any = []
-    for(let i = 0; i < this.getBlocks(); i+=4) {
-        diagOne.push(this.checkFilled(i))
-    }
-    if(!diagOne.includes(false)){
-      console.log('diagone')
-      return true
-    }
-    diagOne = []
-
-    let diagTwo: any = []
-    for(let i = 2; i <= this.gridSize * 2; i+=2) {
-      diagTwo.push(this.checkFilled(i))
-    }
-    if (!diagTwo.includes(false)) {
-      console.log('diagtwo')
-      return true
-    }
-    diagTwo = []
-
-    return false
+  allBlocksFilled() {
+    return this.filledBlocks.filter(f => f === "").length === 0
   }
 
-  checkFilled(i) {
-    return this.filledBlocks[i].includes(this.symbol)
+  isCombo() {
+    let comboBase = Array(this.gridSize).fill(0)
+
+    let diagonalLeft = comboBase
+      .map((c, i) => this.filledBlocks[i * this.gridSize + i])
+      .filter(d => d.includes(this.symbol)).length == this.gridSize
+
+    let diagonalRight = comboBase
+      .map((c, i) => this.filledBlocks[(this.gridSize - 1) * i + (this.gridSize - 1)])
+      .filter(d => d.includes(this.symbol)).length == this.gridSize
+
+    let horizontals = comboBase.fill(comboBase)
+      .map((c, i) => c.map((ic, ii) => this.filledBlocks[i * this.gridSize + ii]).filter(d => d.includes(this.symbol)).length == this.gridSize)
+      .filter(c => c === true).length > 0
+
+    let verticals = comboBase.fill(comboBase)
+      .map((c, i) => c.map((ic, ii) => this.filledBlocks[ii * this.gridSize + i]).filter(d => d.includes(this.symbol)).length == this.gridSize)
+      .filter(c => c === true).length > 0
+
+    return diagonalRight || diagonalLeft || horizontals || verticals
+  }
+
+  getBlock(id) {
+    return this.filledBlocks[id]
+  }
+
+  isFilled(block) {
+    return this.getBlock(block) !== ""
   }
 
   onResize() {
@@ -121,17 +141,11 @@ export class TictactwoComponent implements OnInit {
   }
 
   getMaxSymbolSize() {
-    let min = this.maxWidth < this.maxHeight
-      ? this.maxWidth : this.maxHeight
-
+    let min = Math.min(this.maxWidth, this.maxHeight)
     return (min - (min / 3)) / 3
   }
 
   swapSymbol() {
     this.symbol = this.symbol == this.cross ? this.oval : this.cross
-  }
-
-  clickBlock(event) {
-    this.blockClicker.emit(event)
   }
 }
