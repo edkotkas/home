@@ -57,8 +57,17 @@
   background-color: rgb(241, 54, 81);
 }
 
+.tie {
+  -webkit-transition: background 0.5s ease-in-out;
+  -moz-transition: background 0.5s ease-in-out;
+  -ms-transition: background 0.5s ease-in-out;
+  -o-transition: background 0.5s ease-in-out;
+  transition: background 0.5s ease-in-out;
+  background-color: rgb(1, 217, 251);
+}
+
 .clicked {
-  
+
 }
 
 .reset {
@@ -70,4 +79,6 @@
   background-position:center;
   background-repeat: no-repeat;
   background-size: contain;
+
+  z-index: 999;
 }

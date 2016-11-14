@@ -12,45 +12,89 @@ export class TictactwoComponent implements OnInit {
 
   private cross: string = ' cross'
   private oval: string = ' oval'
-  private clicked: string = ' clicked'
-  private symbol: string
+  private symbol: string = this.cross
 
   private gridSize: number = 3
 
-  private blocks = Array(9).fill("")
-  private filledBlocks = Array(9).fill("")
+  private blocks = Array(this.gridSize * this.gridSize).fill("")
+  private filledBlocks = this.blocks
 
   private maxHeight = window.innerHeight
   private maxWidth = window.innerWidth
 
+  private running: boolean = true
+
   ngOnInit() {
   }
 
-  fillBlock(event) {
-    let fill = this.isFilled(event.block) && this.allBlocksFilled()
-      ? this.endGame()
-      : this.udpateBlock(event.block)
+  tryFill(event) {
+    this.running
+      ? this.canFillBlock(event.block) && !this.isCombo()
+        ? this.fillBlock(event.block)
+        : this.isWinningMove(event.block)
+      : false
   }
 
-  udpateBlock(block) {
+  isWinningMove(block) {
+    return this.isCombo()
+      ? this.endGame(block)
+      : !this.canFillBlock(block)
+        ? this.allBlocksFilled()
+          ? this.fillAllBlocks()
+          : false
+        : this.fillAllBlocks()
+  }
+
+  canFillBlock(block) {
+    return !this.allBlocksFilled() && !this.isFilled(block)
+  }
+
+  fillBlock(block) {
     this.swapSymbol()
-    this.filledBlocks[block] = this.symbol + this.clicked
-    console.log(this.isWinningMove())
+    this.setBlock(block, this.symbol)
+    this.isWinningMove(block)
   }
 
-  endGame() {
-    this.filledBlocks.filter(f =>  f === this.symbol ? f += ' win' : f == "" ? f : f += " lose")
+  setBlock(block, symbol) {
+    this.filledBlocks[block] = symbol
   }
 
-  keyUp(event) {
-    if(event.code === 'KeyR') {
-      this.reset()
-    }
+
+  endGame(block) {
+    let winningBlock = this.getSymbol(block)
+    this.fillBlocksResult(winningBlock, ' win')
+    this.fillBlocksResult(this.getOpponent(winningBlock), ' lose')
+    this.running = false
+  }
+
+  getSymbol(block) {
+    return this.getBlock(block).includes(this.cross) ? this.cross : this.oval
+  }
+
+  getOpponent(symbol) {
+    return symbol.includes(this.cross) ? this.oval : this.cross
+  }
+
+  fillBlocksResult(block, result) {
+    this.filledBlocks = this.filledBlocks.map(f => f.includes(block) ? f += result : f)
+  }
+
+  fillAllBlocks() {
+    console.log('i got hit')
+    this.filledBlocks = this.filledBlocks.map(f => f += ' tie')
+    return true
+  }
+
+  isKeyR(event) {
+    return event.code === 'KeyR'
+      ? this.reset()
+      : false
   }
 
   reset() {
     this.blocks = Array(this.getBlocks()).fill("")
     this.filledBlocks = Array(this.getBlocks()).fill("")
+    this.running = true
   }
 
   getBlocks() {
@@ -58,16 +102,37 @@ export class TictactwoComponent implements OnInit {
   }
 
   allBlocksFilled() {
-    return this.filledBlocks
-      .filter(f => f.includes(this.clicked)).length === this.filledBlocks.length
+    return this.filledBlocks.filter(f => f === "").length === 0
   }
 
-  isWinningMove() {
+  isCombo() {
+    let comboBase = Array(this.gridSize).fill(0)
 
+    let diagonalLeft = comboBase
+      .map((c, i) => this.filledBlocks[i * this.gridSize + i])
+      .filter(d => d.includes(this.symbol)).length == this.gridSize
+
+    let diagonalRight = comboBase
+      .map((c, i) => this.filledBlocks[(this.gridSize - 1) * i + (this.gridSize - 1)])
+      .filter(d => d.includes(this.symbol)).length == this.gridSize
+
+    let horizontals = comboBase.fill(comboBase)
+      .map((c, i) => c.map((ic, ii) => this.filledBlocks[i * this.gridSize + ii]).filter(d => d.includes(this.symbol)).length == this.gridSize)
+      .filter(c => c === true).length > 0
+
+    let verticals = comboBase.fill(comboBase)
+      .map((c, i) => c.map((ic, ii) => this.filledBlocks[ii * this.gridSize + i]).filter(d => d.includes(this.symbol)).length == this.gridSize)
+      .filter(c => c === true).length > 0
+
+    return diagonalRight || diagonalLeft || horizontals || verticals
+  }
+
+  getBlock(id) {
+    return this.filledBlocks[id]
   }
 
   isFilled(block) {
-    return this.filledBlocks[block].includes(this.clicked)
+    return this.getBlock(block) !== ""
   }
 
   onResize() {
@@ -76,9 +141,7 @@ export class TictactwoComponent implements OnInit {
   }
 
   getMaxSymbolSize() {
-    let min = this.maxWidth < this.maxHeight
-      ? this.maxWidth : this.maxHeight
-
+    let min = Math.min(this.maxWidth, this.maxHeight)
     return (min - (min / 3)) / 3
   }
 

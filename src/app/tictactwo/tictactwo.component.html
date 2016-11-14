@@ -3,13 +3,13 @@
   [style.width]="maxWidth + 'px'"
   [style.height]="maxHeight + 'px'"
   (window:resize)="onResize()"
-  (window:keyup)="keyUp($event)">
+  (window:keyup)="isKeyR($event)">
   <div
     class="col-xs-4 block"
     [style.background-size]="getMaxSymbolSize() + 'px'"
     [ngClass]="filledBlocks[i]"
-    (click)="fillBlock({event: $event, block: i})"
-    *ngFor="let b of blocks;let i = index">{{i}}
+    (click)="tryFill({event: $event, block: i})"
+    *ngFor="let b of blocks;let i = index">
   </div>
 </div>
 <div class="reset"
