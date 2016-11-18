@@ -1,0 +1,72 @@
+.grid {
+  background-color: rgb(167, 203, 155);
+}
+
+.easeout-effect-opacity {
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.easeout-effect-background {
+  -webkit-transition: background 0.5s ease-in-out;
+  -moz-transition: background 0.5s ease-in-out;
+  -ms-transition: background 0.5s ease-in-out;
+  -o-transition: background 0.5s ease-in-out;
+  transition: background 0.5s ease-in-out;
+}
+
+.block {
+  height: 33.33%;
+
+  border: 1px solid black;
+
+  background-color: rgb(216, 254, 84);
+  background-position:center;
+  background-repeat: no-repeat;
+}
+
+.block:hover {
+  opacity: .6;
+  @extend .easeout-effect-opacity;
+}
+
+.cross {
+  @extend .easeout-effect-background;
+  background-image: url('./assets/cross.svg');
+}
+
+.oval {
+  @extend .easeout-effect-background;
+  background-image: url('./assets/oval.svg');
+}
+
+.win {
+  @extend .easeout-effect-background;
+  background-color: rgb(57, 205, 110);
+}
+
+.lose {
+  @extend .easeout-effect-background;
+  background-color: rgb(241, 54, 81);
+}
+
+.tie {
+  @extend .easeout-effect-background;
+  background-color: rgb(1, 217, 251);
+}
+
+.clicked {
+
+}
+
+.reset {
+  background-image: url('./assets/reset.svg');
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  z-index: 999;
+}

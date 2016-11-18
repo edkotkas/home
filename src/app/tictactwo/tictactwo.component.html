@@ -2,8 +2,8 @@
   class="grid"
   [style.width]="maxWidth + 'px'"
   [style.height]="maxHeight + 'px'"
-  (window:resize)="onResize()"
-  (window:keyup)="isKeyR($event)">
+  (window:resize)="onResize($event)"
+  >
   <div
     class="col-xs-4 block"
     [style.background-size]="getMaxSymbolSize() + 'px'"
@@ -12,7 +12,8 @@
     *ngFor="let b of blocks;let i = index">
   </div>
 </div>
-<div class="reset"
+<!--<div class="reset"
+    (window:keyup)="isKeyR($event)"
     [style.width]="maxWidth / 20 + 'px'"
     [style.height]="maxHeight / 20 + 'px'"
-    (click)="reset()"></div>
+    (click)="reset()"></div> -->

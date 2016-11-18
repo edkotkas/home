@@ -3,7 +3,14 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {}
+export class AppComponent {
+
+  private currentPage: string = 'HOME'
+
+  openPage(event) {
+    this.currentPage = event.page
+  }
+}

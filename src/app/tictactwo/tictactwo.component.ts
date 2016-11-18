@@ -1,14 +1,12 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-tictactwo',
   templateUrl: './tictactwo.component.html',
-  styleUrls: ['./tictactwo.component.css']
+  styleUrls: ['./tictactwo.component.scss']
 })
 
 export class TictactwoComponent implements OnInit {
-
-  @Output() blockClicker = new EventEmitter<any>()
 
   private cross: string = ' cross'
   private oval: string = ' oval'
@@ -19,12 +17,13 @@ export class TictactwoComponent implements OnInit {
   private blocks = Array(this.gridSize * this.gridSize).fill("")
   private filledBlocks = this.blocks
 
-  private maxHeight = window.innerHeight
-  private maxWidth = window.innerWidth
+  @Input() maxHeight: number = window.innerHeight
+  @Input() maxWidth: number = window.innerWidth
 
   private running: boolean = true
 
   ngOnInit() {
+    console.log(this)
   }
 
   tryFill(event) {
@@ -80,16 +79,15 @@ export class TictactwoComponent implements OnInit {
   }
 
   fillAllBlocks() {
-    console.log('i got hit')
     this.filledBlocks = this.filledBlocks.map(f => f += ' tie')
     return true
   }
 
-  isKeyR(event) {
-    return event.code === 'KeyR'
-      ? this.reset()
-      : false
-  }
+  // isKeyR(event) {
+  //   return event.code === 'KeyR'
+  //     ? this.reset()
+  //     : false
+  // }
 
   reset() {
     this.blocks = Array(this.getBlocks()).fill("")
@@ -135,7 +133,8 @@ export class TictactwoComponent implements OnInit {
     return this.getBlock(block) !== ""
   }
 
-  onResize() {
+  onResize(event) {
+    console.log(event)
     this.maxWidth = window.innerWidth
     this.maxHeight = window.innerHeight
   }

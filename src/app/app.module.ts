@@ -6,12 +6,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { TictactwoComponent } from './tictactwo/tictactwo.component';
 import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TictactwoComponent,
-    LoadingScreenComponent
+    LoadingScreenComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

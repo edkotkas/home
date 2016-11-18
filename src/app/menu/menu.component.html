@@ -1,0 +1,13 @@
+<div class="menu">
+  <span class="logo">
+  </span>
+  <span class="navigation">
+    <span
+      [class.current-page]="page == currentPage"
+      *ngFor="let page of pages"
+      (click)="openPage($event, page)"
+      class="menu-button">
+      {{page}}
+    </span>
+  </span>
+</div>
