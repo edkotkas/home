@@ -1,4 +1,10 @@
 <app-loading-screen></app-loading-screen>
 <app-menu (currentPageChanged)="openPage($event)"></app-menu>
 <div class="spacer"></div>
-<app-tictactwo [maxWidth]="100" [maxHeight]="100" *ngIf="currentPage == 'HOME'"></app-tictactwo>
+<div
+  class="headline"
+  [class.Christmas]="isDecember()">
+  <div>Welcome to my Homepage.</div>
+</div>
+<app-home *ngIf="currentPage == 'HOME'"></app-home>
+<!-- <app-tictactwo [maxWidth]="100" [maxHeight]="100" *ngIf="currentPage == 'HOME'"></app-tictactwo> -->

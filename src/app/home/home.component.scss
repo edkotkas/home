@@ -1,0 +1,29 @@
+.content {
+  background-color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+
+  color: white;
+
+  font-family: 'Catamaran', sans-serif;;
+}
+
+.content .intro{
+  padding-left: 10%;
+  padding-right: 10%;
+
+  padding-top: 20px;
+  padding-bottom: 10px;
+
+  font-size: 24px;
+
+  text-align: left;
+}
+
+.content i {
+  padding: 10px;
+
+  border-radius: 50%;
+  border: 5px solid black;
+
+  margin-bottom: 10px;
+}

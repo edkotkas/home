@@ -13,4 +13,8 @@ export class AppComponent {
   openPage(event) {
     this.currentPage = event.page
   }
+
+  isDecember() {
+    return new Date().getUTCMonth() + 1 == 12
+  }
 }

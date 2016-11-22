@@ -1,3 +1,16 @@
 .spacer {
-  margin-bottom: 10%;
+  margin-top: 10px;
+}
+
+
+@media (max-width: 710px)  {
+  .spacer {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 330px)  {
+  .spacer {
+    margin-top: 50px;
+  }
 }

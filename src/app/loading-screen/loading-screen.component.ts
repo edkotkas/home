@@ -11,7 +11,7 @@ export class LoadingScreenComponent implements OnInit {
   private active: boolean = true
 
   constructor() {
-    this.timeOut = 2000
+    this.timeOut = 5000
     this.active = true
   }
 
