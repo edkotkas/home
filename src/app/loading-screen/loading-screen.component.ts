@@ -7,12 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoadingScreenComponent implements OnInit {
 
-  private timeOut: number = 2000
+  private timeOut: number = 1500
   private active: boolean = true
 
   constructor() {
-    this.timeOut = 5000
-    this.active = true
   }
 
   ngOnInit() {

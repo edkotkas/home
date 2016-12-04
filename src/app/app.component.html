@@ -1,4 +1,4 @@
-<app-loading-screen></app-loading-screen>
+<!-- <app-loading-screen></app-loading-screen> -->
 <app-menu (currentPageChanged)="openPage($event)"></app-menu>
 <div class="spacer"></div>
 <div
@@ -6,5 +6,35 @@
   [class.Christmas]="isDecember()">
   <div>Welcome to my Homepage.</div>
 </div>
-<app-home *ngIf="currentPage == 'HOME'"></app-home>
-<!-- <app-tictactwo [maxWidth]="100" [maxHeight]="100" *ngIf="currentPage == 'HOME'"></app-tictactwo> -->
+<div>
+  <div
+    [class.offside]="currentPage !== 'EXPERIMENTAL'"
+    [ngClass]="pageStyles"
+    class="page">
+    Experimental
+  </div>
+  <div
+    [class.offside]="currentPage !== 'APPS'"
+    [ngClass]="pageStyles"
+    class="page">
+    <app-tictactwo [maxWidth]="600" [maxHeight]="600"></app-tictactwo>
+  </div>
+  <div
+    [class.offside]="currentPage !== 'HOME'"
+    [ngClass]="pageStyles"
+    class="page">
+    <app-home></app-home>
+  </div>
+  <div
+    [class.offside]="currentPage !== 'BLOG'"
+    [ngClass]="pageStyles"
+    class="page">
+    Blog
+  </div>
+  <div
+    [class.offside]="currentPage !== 'PORTFOLIO'"
+    [ngClass]="pageStyles"
+    class="page">
+    Portfolio
+  </div>
+</div>

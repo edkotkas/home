@@ -1,16 +1,23 @@
-.spacer {
-  margin-top: 10px;
+.easeout-effect-top {
+  -webkit-transition: opacity 0.25s ease-in-out;
+  -moz-transition: opacity 0.25s ease-in-out;
+  -ms-transition: opacity 0.25s ease-in-out;
+  -o-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
 }
 
-
-@media (max-width: 710px)  {
-  .spacer {
-    margin-top: 40px;
-  }
+.page {
+  width: 100%;
+  position: absolute;
+  @extend .easeout-effect-top;
 }
 
-@media (max-width: 330px)  {
-  .spacer {
-    margin-top: 50px;
-  }
+.fade {
+  opacity: 0;
+  @extend .easeout-effect-top;
+}
+
+.offside {
+  top: -200%;
+  @extend .easeout-effect-top;
 }

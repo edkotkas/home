@@ -7,8 +7,8 @@
   z-index: 999999;
   background-color: rgba(0, 0, 0, .6);
 
-  -webkit-animation: fade 5s linear infinite;
-  animation: fade 5s linear infinite;
+  -webkit-animation: fade 2s linear infinite;
+  animation: fade 2s linear infinite;
 }
 
 @-webkit-keyframes fade {
@@ -29,8 +29,6 @@
     }
 }
 
-
-
 #loader {
   display: block;
   width: 300px;
@@ -44,8 +42,8 @@
   border-right: 10px solid white;
   border-radius: 50%;
 
-  -webkit-animation: spin 3s linear infinite;
-  animation: spin 3s linear infinite;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
 }
 
 @-webkit-keyframes spin {

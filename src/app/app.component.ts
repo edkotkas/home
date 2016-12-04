@@ -8,13 +8,21 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
 
+  private timeOut: number = 250
+
   private currentPage: string = 'HOME'
 
-  openPage(event) {
-    this.currentPage = event.page
-  }
+  private pageStyles: string
 
   isDecember() {
     return new Date().getUTCMonth() + 1 == 12
+  }
+
+  openPage(event) {
+    this.pageStyles = 'fade'
+    setTimeout(() => {
+      this.pageStyles = ''
+      this.currentPage = event.page
+    }, this.timeOut);
   }
 }

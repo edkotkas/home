@@ -2,6 +2,7 @@
 html {
   min-width: 320px;
   font-style: 'Montserrat', sans-serif;
+  overflow-x: hidden;
 }
 
 html, body {
@@ -32,6 +33,49 @@ body {
   background-image: url('./assets/grid.jpg');
   background-attachment: fixed;
   background-position: center;
+}
+
+.spacer {
+  margin-top: 10px;
+}
+
+
+@media (max-width: 710px)  {
+  .spacer {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 330px)  {
+  .spacer {
+    margin-top: 50px;
+  }
+}
+
+.content {
+  background-color: rgba(0, 0, 0, 0.4);
+
+  text-align: center;
+  color: white;
+  font-family: 'Catamaran', sans-serif;;
+}
+
+.content .intro{
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 20px;
+  padding-bottom: 10px;
+
+  font-size: 24px;
+  text-align: left;
+}
+
+.content i {
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 50%;
+  background-color: rgb(26, 103, 215);
+  margin-bottom: 10px;
 }
 
 .Christmas {
