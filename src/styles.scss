@@ -12,9 +12,34 @@ html, body {
 
 body {
   background-color: rgba(0, 0, 0, .1);
-  background-image: url('http://i.imgur.com/RAg3BS4.png');
+  background-image: url('http://i.imgur.com/g7nANPL.png');
   background-attachment: fixed;
   background-position: center;
+
+  @extend .moving-diagonal;
+}
+
+.moving-diagonal {
+  -webkit-animation: diagonal 120s linear infinite;
+  animation: diagonal 120s linear infinite;
+}
+
+@-webkit-keyframes diagonal {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+@keyframes diagonal {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
 }
 
 .headline {
@@ -25,14 +50,19 @@ body {
 
   text-align: center;
 
-  padding-top: 50px;
-  padding-bottom: 25px;
-
   border-bottom: 5px solid black;
 
   background-image: url('./assets/grid.jpg');
   background-attachment: fixed;
   background-position: center;
+}
+
+.headline .headline-text {
+  height: 100%;
+  background-color: rgba(0, 0, 0, .3);
+
+  padding-top: 50px;
+  padding-bottom: 25px;
 }
 
 .spacer {
@@ -80,5 +110,29 @@ body {
 
 .Christmas {
   background-image: url('./assets/xmas.jpg');
-  color: black;
+  @extend .moving-down;
+}
+
+
+.moving-down {
+  -webkit-animation: down 60s linear infinite;
+  animation: down 60s linear infinite;
+}
+
+@-webkit-keyframes down {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+        background-position: 0 175%;
+    }
+}
+
+@keyframes down {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+      background-position: 0 175%;
+  }
 }

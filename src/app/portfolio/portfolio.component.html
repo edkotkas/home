@@ -1,0 +1,82 @@
+<div class="portfolio-container">
+    <div class="portfolio-header">
+        Eduard Kotkas
+    </div>
+    <div class="portfolio-header-extra">
+      Developing a Developer. <span class="typed-cursor">|</span>
+    </div>
+    <div class="portfolio-headline">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-10 col-sm-push-1">
+                    Hello! I am a Software Developer, a Tech Enthusiast and a student of BSc Computer Science. Currently working for eTech Solutions Ltd. as a Software Developer as part of my placement year opportunity. I will be showcasing some my skills and some of the
+                    work I have been involved in and my contribution to it on this page here.
+                    <p>Welcome to my Portfolio!</p>
+                    Proficient in several programming languages and development methodologies. A fast learner with effective team working and communication skills, refined through University projects and work as a Fundraiser / Team Leader. Eager to continue developing and
+                    building a stronger foundation.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-section">
+        <div class="row">
+            <p>Skills</p>
+        </div>
+        <div class="row skills" *ngFor="let skill of skills">
+            <div class="col-sm-4 col-sm-push-1 skill-title">{{skill.area}}:</div>
+            <div class="col-sm-6  col-sm-push-1" >
+                <span class="skill-name" *ngFor="let s of skill.items">{{s}} </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-section">
+        <div class="row section-title">
+            <p>Projects</p>
+        </div>
+        <div class="row projects" *ngFor="let project of projects">
+            <div class="col-sm-4 col-sm-push-1">
+                <div class="row">
+                    <div class="col-sm-12 section-content-title">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                        <a href="{{project.link}}">{{project.title}}</a>
+                    </div>
+                    <!-- <div class="col-sm-12 section-content-background">{{project.image}}</div> -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-sm-push-1 section-content">
+                {{project.description}}
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-section">
+        <div class="container-fluid">
+            <div class="row">
+                <p>Contact &amp; Other</p>
+                <div class="col-xs-4 col-sm-push-1">
+                    <div class="linkedIn">
+                        <a href="https://uk.linkedin.com/in/eduardkotkas" class="fa fa-5x fa-linkedin"></a>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="gitHub">
+                        <a href="https://github.com/edkotkas" class="fa fa-5x fa-github"></a>
+                    </div>
+                </div>
+                <div class="col-xs-4  col-sm-pull-1">
+                    <div class="deviantArt">
+                        <a href="http://eddy3605.deviantart.com/" class="fa fa-5x fa-deviantart"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-footer">
+        <div class="container-fluid">
+            <a href="https://uk.linkedin.com/in/eduardkotkas">You have reached the end, thanks for visiting. Come checkout my LinkedIn as well if you havent already.</a>
+        </div>
+    </div>
+</div>

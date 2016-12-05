@@ -23,7 +23,6 @@ export class TictactwoComponent implements OnInit {
   private running: boolean = true
 
   ngOnInit() {
-    console.log(this)
   }
 
   tryFill(event) {
@@ -134,9 +133,8 @@ export class TictactwoComponent implements OnInit {
   }
 
   onResize(event) {
-    console.log(event)
-    this.maxWidth = window.innerWidth
-    this.maxHeight = window.innerHeight
+    // this.maxWidth = window.innerWidth
+    // this.maxHeight = window.innerHeight
   }
 
   getMaxSymbolSize() {

@@ -4,7 +4,7 @@
 <div
   class="headline"
   [class.Christmas]="isDecember()">
-  <div>Welcome to my Homepage.</div>
+  <div class="headline-text">Welcome to my Homepage.</div>
 </div>
 <div>
   <div
@@ -35,6 +35,6 @@
     [class.offside]="currentPage !== 'PORTFOLIO'"
     [ngClass]="pageStyles"
     class="page">
-    Portfolio
+    <app-portfolio></app-portfolio>
   </div>
 </div>

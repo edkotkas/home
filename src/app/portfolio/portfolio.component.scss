@@ -1,0 +1,178 @@
+.portfolio-container {
+  padding-top: 100px;
+  margin: 0 auto;
+
+  max-width: 1200px;
+  height: 100%;
+
+  text-align: center;
+
+  font-family: 'Amiko', cursive;
+  color: white;
+  background-color: rgba(0,0,0,.2);
+  background-image: url('http://i.imgur.com/rXslXqE.png');
+  background-position: center;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-size: contain;
+
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.portfolio-container .portfolio-header {
+  font-size: 78px;
+  font-weight: 600;
+}
+
+.portfolio-container .portfolio-header-extra {
+  font-size: 28px;
+  font-weight: bolder;
+  display: inline-block;
+}
+
+@media (max-width: 560px) {
+  .portfolio-container .portfolio-header {
+    font-size: 80px;
+  }
+  .portfolio-container .portfolio-header-extra {
+    font-size: 22px;
+  }
+}
+
+.portfolio-container .portfolio-headline {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.portfolio-container .portfolio-headline, .portfolio-container .portfolio-section {
+  font-size: 18px;
+  font-weight: lighter;
+  margin-top: 80px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  min-height: 200px;
+  background-color: rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+.portfolio-container .skill-name {
+  padding: 5px;
+}
+
+.portfolio-container .skill-title, .portfolio-container .section-title, .portfolio-container .section-content-title {
+  font-weight: 600;
+}
+
+.portfolio-container .skills {
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.portfolio-container p {
+  font-weight: bold;
+  text-align: center;
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.portfolio-container .portfolio-section {
+  margin-top: 25px;
+}
+
+.portfolio-container .projects {
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.portfolio-container .section-content-title {
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+
+.portfolio-container .section-content-background {
+  background-color: rgba(92, 92, 92, 0.5);
+  background-size: cover;
+  background-position: center;
+  height: 125px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.portfolio-container .section-content {
+  text-align: justify;
+}
+
+@media (max-width: 560px) {
+  .portfolio-container .section-content {
+    text-align: left;
+  }
+}
+
+.portfolio-container .linkedIn, .portfolio-container .gitHub, .portfolio-container .deviantArt {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.portfolio-container .portfolio-footer {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+
+.portfolio-container a, .portfolio-container a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.portfolio-container .section-content-title:hover, .portfolio-container a:hover {
+  color: gray;
+}
+
+.portfolio-container .typed-cursor {
+  opacity: 1;
+  font-size: 28px;
+  -webkit-animation: blink 1s infinite;
+  -moz-animation: blink 1s infinite;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

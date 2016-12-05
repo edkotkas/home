@@ -8,6 +8,7 @@ import { TictactwoComponent } from './tictactwo/tictactwo.component';
 import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HomeComponent } from './home/home.component';
     TictactwoComponent,
     LoadingScreenComponent,
     MenuComponent,
-    HomeComponent
+    HomeComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,
