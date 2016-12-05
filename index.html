@@ -12,100 +12,46 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Catamaran|Amiko" rel="stylesheet">
 
+  <script src="//cdn.bootcss.com/typed.js/1.1.4/typed.min.js"></script>
 </head>
 <body>
   <app-root>
     <style>
       #loader-wrapper {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: 1000;
-          background-color: rgba(0, 0, 0, .8);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999999;
+        background-color: rgba(0, 0, 0, .8);
+
+        -webkit-animation: fade 5s linear infinite;
+        animation: fade 5s linear infinite;
       }
 
-      #loader {
-        display: block;
-        position: absolute;
-        left: 48%;
-        top: 48%;
-        width: 200px;
-        height: 200px;
-        margin: -75px 0 0 -75px;
-        border-bottom: 10px solid white;
-        border-right: 5px solid white;
-        border-top: 5px solid white;
-        border-left: 10px solid white;
-        border-radius: 50%;
-
-        -webkit-animation: spin 3s linear infinite;
-        animation: spin 3s linear infinite;
+      @-webkit-keyframes fade {
+          0% {
+              opacity: 1;
+          }
+          100% {
+              opacity: 0;
+          }
       }
 
-      #loader-shadow {
-        display: block;
-        position: absolute;
-        left: 48%;
-        top: 48%;
-        width: 205px;
-        height: 200px;
-        margin: -70px 0 0 -70px;
-        border-top: 5px solid #464646;
-        border-bottom: 5px solid #464646;
-        border-left: 10px solid #464646;
-        border-right: 10px solid #464646;
-        border-radius: 100%;
-
-        -webkit-animation: spin 3s linear infinite;
-        animation: spin 3s linear infinite;
+      @keyframes fade {
+          0% {
+              opacity: 1;
+          }
+          100% {
+              opacity: 0;
+          }
       }
-
-      @-webkit-keyframes spin {
-        0%   {
-          -webkit-transform: rotate(0deg);
-          -ms-transform: rotate(0deg);
-          transform: rotate(0deg);
-        }
-        100% {
-          -webkit-transform: rotate(360deg);
-          -ms-transform: rotate(360deg);
-          transform: rotate(360deg);
-        }
-      }
-      @keyframes spin {
-        0%   {
-          -webkit-transform: rotate(0deg);
-          -ms-transform: rotate(0deg);
-          transform: rotate(0deg);
-        }
-        100% {
-          -webkit-transform: rotate(360deg);
-          -ms-transform: rotate(360deg);
-          transform: rotate(360deg);
-        }
-      }
-
     </style>
     <div id="loader-wrapper">
-      <span id="loader"></span>
-      <span id="loader-shadow"></span>
-      <span id="loader-anti"></span>
     </div>
-
-    <script>
-      var timeoutLoad;
-
-      function showLoadingScreen() {
-          timeoutLoad = setTimeout(showPage, 5000);
-      }
-
-      function showPage() {
-        $('loader-wrapper').fadeTo("slow", 0);
-      }
-    </script>
   </app-root>
-<script type="text/javascript" src="inline.js"></script><script type="text/javascript" src="styles.365fde027791cdac098a.bundle.js"></script><script type="text/javascript" src="main.73e01be0bcb8a7e536a4.bundle.js"></script></body>
+<script type="text/javascript" src="inline.js"></script><script type="text/javascript" src="styles.e627aea766b2a1197446.bundle.js"></script><script type="text/javascript" src="main.65450e7274d73173295e.bundle.js"></script></body>
 </html>
