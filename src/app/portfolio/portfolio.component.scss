@@ -2,7 +2,7 @@
   padding-top: 100px;
   margin: 0 auto;
 
-  max-width: 1200px;
+  max-width: 99.5%;
   height: 100%;
 
   text-align: center;
@@ -21,12 +21,12 @@
 }
 
 .portfolio-container .portfolio-header {
-  font-size: 78px;
+  font-size: 6em;
   font-weight: 600;
 }
 
 .portfolio-container .portfolio-header-extra {
-  font-size: 28px;
+  font-size: 2em;
   font-weight: bolder;
   display: inline-block;
 }
@@ -62,6 +62,7 @@
 
 .portfolio-container .skill-title, .portfolio-container .section-title, .portfolio-container .section-content-title {
   font-weight: 600;
+  text-align: right;
 }
 
 .portfolio-container .skills {

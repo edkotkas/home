@@ -1,4 +1,4 @@
-<!-- <app-loading-screen></app-loading-screen> -->
+<app-loading-screen *ngIf="loading"></app-loading-screen>
 <app-menu (currentPageChanged)="openPage($event)"></app-menu>
 <div class="spacer"></div>
 <div
@@ -29,7 +29,7 @@
     [class.offside]="currentPage !== 'BLOG'"
     [ngClass]="pageStyles"
     class="page">
-    Blog
+    <app-blog></app-blog>
   </div>
   <div
     [class.offside]="currentPage !== 'PORTFOLIO'"

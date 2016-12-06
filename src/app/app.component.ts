@@ -14,15 +14,20 @@ export class AppComponent {
 
   private pageStyles: string
 
+  private loading: boolean = false
+
   isDecember() {
     return new Date().getUTCMonth() + 1 == 12
   }
 
   openPage(event) {
     this.pageStyles = 'fade'
+    this.loading = true
+
     setTimeout(() => {
       this.pageStyles = ''
       this.currentPage = event.page
+      this.loading = false
     }, this.timeOut);
   }
 }

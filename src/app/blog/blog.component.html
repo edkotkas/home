@@ -1,0 +1,34 @@
+<div class="blog-container" *ngIf="entriesFormatted">
+    <div class="blog-entry-header">
+        <div class="header-title">
+            Abridged Pixel
+        </div>
+        <div class="header-extra">
+            root@AbridgedPixel:~# Code! <span class="typed-cursor">|</span>
+            <div class="inner">
+            </div>
+        </div>
+    </div>
+
+    <div class="blog-entry" *ngFor="let entry of entries;let i = index">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-4 blog-title">
+                    {{entry.title}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-sm-12 blog-date">
+                            {{entry.date}}
+                        </div>
+                        <div class="col-sm-10 col-sm-offset-1 blog-sketch" [innerHtml]="entry.extra"></div>
+                    </div>
+                </div>
+                <div class="col-sm-8 blog-content" [innerHtml]="entry.content"></div>
+                <div class="col-sm-1 col-sm-offset-11 blog-end">{{entries.length - i}}</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -9,6 +9,7 @@ import { LoadingScreenComponent } from './loading-screen/loading-screen.componen
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import { BlogComponent } from './blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
     LoadingScreenComponent,
     MenuComponent,
     HomeComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,
