@@ -32,7 +32,7 @@
 }
 
 .blog-container .header-title {
-    font-size: 6em;
+    font-size: 4em;
     font-weight: 600;
     padding-left: 10px;
 }
@@ -52,13 +52,16 @@
 }
 
 @media (max-width: 400px) {
-    .blog-container .header-title {
-        padding-top: 30px;
-        text-align: center;
-    }
-    .blog-container .header-extra {
-        display: none;
-    }
+  .blog-container .blog-entry-header {
+      margin-bottom: 50px;
+  }
+  .blog-container .header-title {
+      padding-top: 30px;
+      text-align: center;
+  }
+  .blog-container .header-extra {
+      display: none;
+  }
 }
 
 .blog-container .typed-cursor{
@@ -111,7 +114,6 @@
 .blog-container .blog-sketch, .blog-container .blog-sketch img {
     font-size: 1.2em;
     margin-top: 25px;
-    height: 200px;
     padding-bottom: 25px;
     background-position: center;
     background-repeat: no-repeat;
@@ -125,7 +127,7 @@
 }
 
 .blog-container .blog-content {
-    font-size: 1.8em;
+    font-size: 1.2em;
     padding-top: 20px;
     text-align: justify;
     font-family: 'Amiko', cursive;

@@ -22,14 +22,8 @@ export class MenuComponent implements OnInit {
     this.currentPageChanged.emit({
       event: event,
       page: page,
-      slide: this.getPageIndex(this.currentPage) > this.getPageIndex(page)
     })
 
     this.currentPage = page
   }
-
-  getPageIndex(page) {
-    return this.pages.indexOf(page)
-  }
-
 }

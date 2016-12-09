@@ -35,8 +35,8 @@
 }
 
 .menu-button {
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
   padding-left: 7px;
   padding-right: 7px;
   -webkit-user-select: none;
@@ -44,10 +44,10 @@
   -ms-user-select: none;
 }
 
-@media (max-width: 500px)  {
+@media (max-width: 786px)  {
   .menu-button {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 1px;
+    margin-right: 1px;
     padding-left: 2px;
     padding-right: 2px;
   }

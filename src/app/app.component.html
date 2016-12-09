@@ -9,30 +9,35 @@
 <div>
   <div
     [class.offside]="currentPage !== 'EXPERIMENTAL'"
+    *ngIf="currentPage === 'EXPERIMENTAL'"
     [ngClass]="pageStyles"
     class="page">
     Experimental
   </div>
   <div
     [class.offside]="currentPage !== 'APPS'"
+    *ngIf="currentPage === 'APPS'"
     [ngClass]="pageStyles"
     class="page">
     <app-tictactwo [maxWidth]="600" [maxHeight]="600"></app-tictactwo>
   </div>
   <div
     [class.offside]="currentPage !== 'HOME'"
+    *ngIf="currentPage === 'HOME'"
     [ngClass]="pageStyles"
     class="page">
     <app-home></app-home>
   </div>
   <div
     [class.offside]="currentPage !== 'BLOG'"
+    *ngIf="currentPage === 'BLOG'"
     [ngClass]="pageStyles"
     class="page">
     <app-blog></app-blog>
   </div>
   <div
     [class.offside]="currentPage !== 'PORTFOLIO'"
+    *ngIf="currentPage === 'PORTFOLIO'"
     [ngClass]="pageStyles"
     class="page">
     <app-portfolio></app-portfolio>

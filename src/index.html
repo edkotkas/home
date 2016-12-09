@@ -26,10 +26,10 @@
         width: 100%;
         height: 100%;
         z-index: 999999;
-        background-color: rgba(0, 0, 0, .8);
+        background-color: rgba(0, 0, 0, .6);
 
-        -webkit-animation: fade 5s linear infinite;
-        animation: fade 5s linear infinite;
+        -webkit-animation: fade 2s linear infinite;
+        animation: fade 2s linear infinite;
       }
 
       @-webkit-keyframes fade {
@@ -49,8 +49,52 @@
               opacity: 0;
           }
       }
+
+      #loader {
+        display: block;
+        width: 300px;
+        height: 300px;
+
+        margin: auto;
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+
+        border-bottom: 15px solid white;
+        border-right: 10px solid white;
+        border-radius: 50%;
+
+        -webkit-animation: spin .25s linear infinite;
+        animation: spin .25s linear infinite;
+      }
+
+      @-webkit-keyframes spin {
+        0%   {
+          -webkit-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes spin {
+        0%   {
+          -webkit-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
     </style>
-    <div id="loader-wrapper">
+    <div id="loader-wrapper" *ngIf='active'>
+      <span id="loader"></span>
     </div>
   </app-root>
 </body>

@@ -58,6 +58,10 @@
   padding: 5px;
 }
 
+.portfolio-container .skill-title {
+  border-bottom: 1px solid white;
+}
+
 .portfolio-container .skill-title, .portfolio-container .section-title, .portfolio-container .section-content-title {
   font-weight: 600;
   text-align: right;
@@ -88,7 +92,13 @@
 
 .portfolio-container .section-content-title {
   padding-bottom: 10px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid white;
+}
+
+@media (max-width: 800px) {
+  .portfolio-container .section-content-title, .portfolio-container .skill-title {
+    text-align: left;
+  }
 }
 
 .portfolio-container .section-content-background {

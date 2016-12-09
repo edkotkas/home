@@ -41,9 +41,9 @@ export class BlogComponent implements OnInit {
   ngOnInit() {
     for(let entry of this.entries) {
       let imageRegex = /\[i\](.*?)\[\/i\]/g
-      entry.extra = entry.extra.replace(imageRegex, "<img width=\"100%\" height=\"100%\" class=\"extra-image\" src=\"$1\"/>")
-      // entry.extra = entry.extra.replace(imageRegex, "<span class=\"extra-image\" style=\"background-image:$1\"></span>")
-      //
+      // entry.extra = entry.extra.replace(imageRegex, "<img width=\"100%\" height=\"100%\" class=\"extra-image\" src=\"$1\"/>")
+      entry.extra = entry.extra.replace(imageRegex, "")
+
       var linkRegex = /\[l=\((.*?)\)\](.*?)\[\/l\]/g;
       entry.content = entry.content.replace(linkRegex, "<a class=\"real-link\" href=\"$1\">$2</a>")
     }

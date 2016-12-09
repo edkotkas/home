@@ -23,10 +23,10 @@ body {
   animation: diagonal 360s ease-out infinite;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 800px) {
   .moving-diagonal {
-    -webkit-animation: none;
-    animation: none;
+    -webkit-animation: diagonal 180s ease-out infinite;
+    animation: diagonal 180s ease-out infinite;
   }
 }
 
@@ -143,10 +143,23 @@ body {
 }
 
 
-@media (max-width: 500px) {
-  .moving-down {
-    -webkit-animation: none;
-    animation: none;
+@media (max-width: 800px) {
+  @-webkit-keyframes down {
+      0% {
+        background-position: 0 175%;
+      }
+      100% {
+          background-position: 0 0;
+      }
+  }
+
+  @keyframes down {
+    0% {
+      background-position: 0 175%;
+    }
+    100% {
+        background-position: 0 0;
+    }
   }
 }
 
