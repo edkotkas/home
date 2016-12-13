@@ -14,11 +14,11 @@ export class TictactwoComponent implements OnInit {
 
   private gridSize: number = 3
 
+  @Input() Width
+  @Input() Height
+
   private blocks = Array(this.gridSize * this.gridSize).fill("")
   private filledBlocks = this.blocks
-
-  @Input() maxHeight: number = window.innerHeight
-  @Input() maxWidth: number = window.innerWidth
 
   private running: boolean = true
 
@@ -30,7 +30,7 @@ export class TictactwoComponent implements OnInit {
       ? this.canFillBlock(event.block) && !this.isCombo()
         ? this.fillBlock(event.block)
         : this.isWinningMove(event.block)
-      : false
+      : this.reset()
   }
 
   isWinningMove(block) {
@@ -79,16 +79,12 @@ export class TictactwoComponent implements OnInit {
 
   fillAllBlocks() {
     this.filledBlocks = this.filledBlocks.map(f => f += ' tie')
+    this.running = false
     return true
   }
 
-  // isKeyR(event) {
-  //   return event.code === 'KeyR'
-  //     ? this.reset()
-  //     : false
-  // }
-
   reset() {
+    console.log("reset")
     this.blocks = Array(this.getBlocks()).fill("")
     this.filledBlocks = Array(this.getBlocks()).fill("")
     this.running = true
@@ -138,8 +134,8 @@ export class TictactwoComponent implements OnInit {
   }
 
   getMaxSymbolSize() {
-    let min = Math.min(this.maxWidth, this.maxHeight)
-    return (min - (min / 3)) / 3
+    // let min = Math.min(this.maxWidth, this.maxHeight)
+    // return (min - (min / 3)) / 3
   }
 
   swapSymbol() {

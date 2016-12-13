@@ -1,12 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
 html {
   font-style: 'Montserrat', sans-serif;
   overflow-x: hidden;
 }
 
+@media (max-width: 300px) {
+  html {
+    overflow-x: visible;
+  }
+}
+
 html, body {
   padding: 0;
   margin: 0;
+  min-width: 300px;
 }
 
 body {
@@ -19,15 +25,8 @@ body {
 }
 
 .moving-diagonal {
-  -webkit-animation: diagonal 360s ease-out infinite;
-  animation: diagonal 360s ease-out infinite;
-}
-
-@media (max-width: 800px) {
-  .moving-diagonal {
-    -webkit-animation: diagonal 180s ease-out infinite;
-    animation: diagonal 180s ease-out infinite;
-  }
+  -webkit-animation: diagonal 180s ease-out infinite;
+  animation: diagonal 180s ease-out infinite;
 }
 
 @-webkit-keyframes diagonal {
@@ -67,6 +66,7 @@ body {
 }
 
 .headline {
+  min-width: 300px;
   font-size: 2.5em;
   font-weight: 600;
 
@@ -90,23 +90,11 @@ body {
 }
 
 .spacer {
-  margin-top: 10px;
-}
-
-
-@media (max-width: 710px)  {
-  .spacer {
-    margin-top: 40px;
-  }
-}
-
-@media (max-width: 330px)  {
-  .spacer {
-    margin-top: 50px;
-  }
+  margin-top: 2em;
 }
 
 .content {
+  min-width: 300px;
   background-color: rgba(0, 0, 0, 0.4);
 
   text-align: center;
@@ -134,49 +122,4 @@ body {
 
 .Christmas {
   background-image: url('./assets/xmas.jpg');
-  @extend .moving-down;
-}
-
-.moving-down {
-  -webkit-animation: down 60s linear infinite;
-  animation: down 60s linear infinite;
-}
-
-
-@media (max-width: 800px) {
-  @-webkit-keyframes down {
-      0% {
-        background-position: 0 175%;
-      }
-      100% {
-          background-position: 0 0;
-      }
-  }
-
-  @keyframes down {
-    0% {
-      background-position: 0 175%;
-    }
-    100% {
-        background-position: 0 0;
-    }
-  }
-}
-
-@-webkit-keyframes down {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-        background-position: 0 175%;
-    }
-}
-
-@keyframes down {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-      background-position: 0 175%;
-  }
 }

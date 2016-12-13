@@ -7,6 +7,7 @@
 }
 
 .page {
+  min-width: 300px;
   width: 100%;
   position: absolute;
   @extend .easeout-effect-top;

@@ -1,5 +1,7 @@
 .grid {
   background-color: rgb(167, 203, 155);
+  width: 100%;
+  height: 100%;
 }
 
 .easeout-effect-opacity {
@@ -24,6 +26,7 @@
   border: 1px solid black;
 
   background-color: rgb(216, 254, 84);
+  background-size: 80%;
   background-position:center;
   background-repeat: no-repeat;
 }
@@ -60,13 +63,4 @@
 
 .clicked {
 
-}
-
-.reset {
-  background-image: url('./assets/reset.svg');
-  background-position:center;
-  background-repeat: no-repeat;
-  background-size: contain;
-
-  z-index: 999;
 }

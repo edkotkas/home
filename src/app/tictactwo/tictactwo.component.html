@@ -1,19 +1,11 @@
-<div
-  class="grid"
-  [style.width]="maxWidth + 'px'"
-  [style.height]="maxHeight + 'px'"
-  (window:resize)="onResize($event)"
-  >
-  <div
-    class="col-xs-4 block"
-    [style.background-size]="getMaxSymbolSize() + 'px'"
-    [ngClass]="filledBlocks[i]"
-    (click)="tryFill({event: $event, block: i})"
-    *ngFor="let b of blocks;let i = index">
-  </div>
+<div class="tictactwo"
+    [style.width]="Width + 'px'"
+    [style.height]="Height + 'px'">
+    <div class="grid">
+      <div class="col-xs-4 block"
+        [ngClass]="filledBlocks[i]"
+        (click)="tryFill({event: $event, block: i})"
+        *ngFor="let b of blocks;let i = index">
+      </div>
+    </div>
 </div>
-<!--<div class="reset"
-    (window:keyup)="isKeyR($event)"
-    [style.width]="maxWidth / 20 + 'px'"
-    [style.height]="maxHeight / 20 + 'px'"
-    (click)="reset()"></div> -->
