@@ -1,0 +1,53 @@
+.apps-container {
+  margin: 3em auto;
+  background-color: rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.container, .row {
+  text-align: center;
+}
+
+.app {
+  border: 1px solid black;
+  background-color: black;
+  padding: 1em;
+}
+
+.title {
+  font-size: 3em;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.description {
+  padding-top: 0.5em;
+  text-align: left;
+  color: white;
+}
+
+.left-to-right {
+  background: -webkit-linear-gradient(left, #413898, #312b6f ); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #413898, #312b6f); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #413898, #312b6f); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #413898, #312b6f); /* Standard syntax */
+}
+
+.outer-link {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  color: white;
+}
+
+.steam-coast {
+  background-color: #141321;
+  @extend .left-to-right;
+}
+
+.steam-coast-steam {
+  color: #7068ba;
+}
+.steam-coast-coast {
+  color: #8079c6;
+}

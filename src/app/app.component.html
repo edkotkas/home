@@ -19,7 +19,8 @@
     *ngIf="currentPage === 'APPS'"
     [ngClass]="pageStyles"
     class="page">
-    <app-tictactwo [Width]="200" [Height]="200"></app-tictactwo>
+    <app-apps></app-apps>
+    <!-- <app-tictactwo [Width]="200" [Height]="200"></app-tictactwo> -->
   </div>
   <div
     [class.offside]="currentPage !== 'HOME'"

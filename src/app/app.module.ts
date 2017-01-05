@@ -10,6 +10,7 @@ import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { BlogComponent } from './blog/blog.component';
+import { AppsComponent } from './apps/apps.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BlogComponent } from './blog/blog.component';
     MenuComponent,
     HomeComponent,
     PortfolioComponent,
-    BlogComponent
+    BlogComponent,
+    AppsComponent
   ],
   imports: [
     BrowserModule,
